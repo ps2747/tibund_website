@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>貼邦輕鋼構股份有限公司 (Tibund Light Steel Structure)</title>
-    
-    <!-- Google Fonts: Noto Sans TC -->
+    <title data-i18n="page-title">貼邦輕鋼構股份有限公司 (Tibund Light Steel Structure)</title>
+    <meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="貼邦輕鋼構專注於高階模組化組合屋與輕鋼構工程，提供兼具結構強度與環境永續的一站式空間解決方案。">
+
+    <!-- Google Fonts: Noto Sans TC + Inter (for English) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -20,7 +21,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        sans: ['"Noto Sans TC"', '"Inter"', 'sans-serif'],
                     },
                     colors: {
                         corporate: {
@@ -44,7 +45,7 @@
     <!-- Custom CSS -->
     <style>
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
             color: #334155;
             background-color: #F8FAFC;
         }
@@ -53,14 +54,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94a3b8; 
+            background: #94a3b8;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b; 
+            background: #64748b;
         }
         .hero-overlay {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.7) 100%);
@@ -81,17 +82,23 @@
                     <div class="w-10 h-10 bg-corporate-600 rounded flex items-center justify-center text-white font-bold text-xl">
                         <i class="fa-solid fa-building-shield"></i>
                     </div>
-                    <span class="font-bold text-2xl text-corporate-900 tracking-wider">貼邦輕鋼構</span>
+                    <span class="font-bold text-2xl text-corporate-900 tracking-wider" data-i18n="brand">貼邦輕鋼構</span>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors">首頁</a>
-                    <a href="#about" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors">關於我們</a>
-                    <a href="#services" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors">產品與服務</a>
-                    <a href="#cases" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors">實績案例</a>
-                    <a href="#contact" target="_self" class="px-5 py-2.5 bg-corporate-600 text-white text-body-sm font-medium rounded-md hover:bg-corporate-500 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5">聯絡我們</a>
+                    <a href="#home" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors" data-i18n="nav-home">首頁</a>
+                    <a href="#about" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors" data-i18n="nav-about">關於我們</a>
+                    <a href="#services" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors" data-i18n="nav-services">產品與服務</a>
+                    <a href="#cases" target="_self" class="text-body-sm font-medium text-gray-600 hover:text-corporate-500 transition-colors" data-i18n="nav-cases">實績案例</a>
+                    <a href="#contact" target="_self" class="px-5 py-2.5 bg-corporate-600 text-white text-body-sm font-medium rounded-md hover:bg-corporate-500 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5" data-i18n="nav-contact">聯絡我們</a>
+                    <button id="lang-toggle" class="ml-2 px-3 py-2 border border-gray-300 text-gray-700 text-body-sm font-bold rounded-md hover:border-corporate-500 hover:text-corporate-600 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i><span class="lang-label">EN</span>
+                    </button>
                 </div>
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="lang-toggle-mobile" class="px-3 py-2 border border-gray-300 text-gray-700 text-sm font-bold rounded-md hover:border-corporate-500 hover:text-corporate-600 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i><span class="lang-label">EN</span>
+                    </button>
                     <button id="mobile-menu-btn" class="text-gray-600 hover:text-corporate-600 focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
@@ -101,11 +108,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md">首頁</a>
-                <a href="#about" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md">關於我們</a>
-                <a href="#services" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md">產品與服務</a>
-                <a href="#cases" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md">實績案例</a>
-                <a href="#contact" target="_self" class="block px-3 py-3 text-body-sm font-medium text-corporate-600 bg-blue-50 hover:bg-blue-100 rounded-md mt-2">聯絡我們</a>
+                <a href="#home" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md" data-i18n="nav-home">首頁</a>
+                <a href="#about" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md" data-i18n="nav-about">關於我們</a>
+                <a href="#services" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md" data-i18n="nav-services">產品與服務</a>
+                <a href="#cases" target="_self" class="block px-3 py-3 text-body-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-corporate-600 rounded-md" data-i18n="nav-cases">實績案例</a>
+                <a href="#contact" target="_self" class="block px-3 py-3 text-body-sm font-medium text-corporate-600 bg-blue-50 hover:bg-blue-100 rounded-md mt-2" data-i18n="nav-contact">聯絡我們</a>
             </div>
         </div>
     </nav>
@@ -116,20 +123,20 @@
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="" class="w-full h-full object-cover object-center" />
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
-        
+
         <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <span class="block gsap-fade-up text-corporate-50 font-bold tracking-widest mb-4 uppercase text-sm md:text-base border border-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">Tibund Light Steel Structure</span>
-            <h1 class="gsap-fade-up text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 class="gsap-fade-up text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" data-i18n="hero-title">
                 為您打造安全、極速、客製化的<br class="hidden md:block"/>現代化建築空間。
             </h1>
-            <p class="gsap-fade-up text-body md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="gsap-fade-up text-body md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed" data-i18n="hero-desc">
                 貼邦輕鋼構專注於高階模組化組合屋與輕鋼構工程。從精緻農舍、企業廠辦到遠端高難度專案,我們提供兼具結構強度與環境永續的一站式空間解決方案。
             </p>
             <div class="gsap-fade-up flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#services" target="_self" class="px-8 py-4 bg-corporate-500 text-white text-body-sm font-bold rounded-md hover:bg-blue-400 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1">
+                <a href="#services" target="_self" class="px-8 py-4 bg-corporate-500 text-white text-body-sm font-bold rounded-md hover:bg-blue-400 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1" data-i18n="hero-btn1">
                     探索模組化解決方案
                 </a>
-                <a href="#contact" target="_self" class="px-8 py-4 bg-transparent border-2 border-white text-white text-body-sm font-bold rounded-md hover:bg-white hover:text-corporate-900 transition-all transform hover:-translate-y-1">
+                <a href="#contact" target="_self" class="px-8 py-4 bg-transparent border-2 border-white text-white text-body-sm font-bold rounded-md hover:bg-white hover:text-corporate-900 transition-all transform hover:-translate-y-1" data-i18n="hero-btn2">
                     聯絡工程顧問
                 </a>
             </div>
@@ -140,54 +147,54 @@
     <section id="about" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4">關於我們</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4" data-i18n="about-title">關於我們</h2>
                 <div class="w-20 h-1 bg-corporate-500 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
                 <div class="lg:col-span-5 gsap-fade-up">
                     <div class="bg-corporate-50 p-8 rounded-xl border-l-4 border-corporate-600">
-                        <h3 class="text-2xl font-bold text-corporate-800 mb-6">【公司簡介】</h3>
-                        <p class="text-body text-gray-700 leading-relaxed text-justify">
+                        <h3 class="text-2xl font-bold text-corporate-800 mb-6" data-i18n="about-intro-title">【公司簡介】</h3>
+                        <p class="text-body text-gray-700 leading-relaxed text-justify" data-i18n="about-intro-body">
                             建築的未來,在於精準與效率。貼邦輕鋼構股份有限公司總部位於台灣高雄市三民區,我們是一群致力於翻轉傳統營造模式的建築工程專家。我們深知,無論是企業擴張還是特殊環境開發,時間與安全性都是最大的成本。因此,我們將建築「工業化、模組化」,透過精密的結構計算與工廠預製,讓蓋房子變得如同組裝精密零件般迅速且可靠。
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="lg:col-span-7">
-                    <h3 class="text-2xl font-bold text-corporate-800 mb-8 gsap-fade-up">【我們的核心價值 (Core Values)】</h3>
+                    <h3 class="text-2xl font-bold text-corporate-800 mb-8 gsap-fade-up" data-i18n="corevalues-title">【我們的核心價值 (Core Values)】</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Value 1 -->
                         <div class="gsap-fade-up bg-white border border-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                             <div class="w-12 h-12 bg-blue-100 text-corporate-600 rounded-lg flex items-center justify-center text-2xl mb-4">
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
-                            <h4 class="text-xl font-bold text-corporate-900 mb-3">專業與絕對安全<br><span class="text-sm text-gray-500 font-normal">Professionalism & Safety</span></h4>
-                            <p class="text-body-sm text-gray-600">我們採用高張力鍍鋅鋼材,具備極佳的抗震與耐風能力。結構設計皆經過嚴格計算,打破傳統對組合屋的刻板印象,提供真正能抵禦惡劣氣候的堅固堡壘。</p>
+                            <h4 class="text-xl font-bold text-corporate-900 mb-3" data-i18n="value1-title">專業與絕對安全<br><span class="text-sm text-gray-500 font-normal">Professionalism &amp; Safety</span></h4>
+                            <p class="text-body-sm text-gray-600" data-i18n="value1-body">我們採用高張力鍍鋅鋼材,具備極佳的抗震與耐風能力。結構設計皆經過嚴格計算,打破傳統對組合屋的刻板印象,提供真正能抵禦惡劣氣候的堅固堡壘。</p>
                         </div>
                         <!-- Value 2 -->
                         <div class="gsap-fade-up bg-white border border-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" style="transition-delay: 0.1s;">
                             <div class="w-12 h-12 bg-blue-100 text-corporate-600 rounded-lg flex items-center justify-center text-2xl mb-4">
                                 <i class="fa-solid fa-stopwatch"></i>
                             </div>
-                            <h4 class="text-xl font-bold text-corporate-900 mb-3">極速完工<br><span class="text-sm text-gray-500 font-normal">Rapid Deployment</span></h4>
-                            <p class="text-body-sm text-gray-600">時間就是金錢。我們的「廠內預製、現場組裝」系統,能將傳統混凝土(RC)建築的工期大幅縮短50%以上,幫助客戶最快投入營運。</p>
+                            <h4 class="text-xl font-bold text-corporate-900 mb-3" data-i18n="value2-title">極速完工<br><span class="text-sm text-gray-500 font-normal">Rapid Deployment</span></h4>
+                            <p class="text-body-sm text-gray-600" data-i18n="value2-body">時間就是金錢。我們的「廠內預製、現場組裝」系統,能將傳統混凝土(RC)建築的工期大幅縮短50%以上,幫助客戶最快投入營運。</p>
                         </div>
                         <!-- Value 3 -->
                         <div class="gsap-fade-up bg-white border border-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" style="transition-delay: 0.2s;">
                             <div class="w-12 h-12 bg-blue-100 text-corporate-600 rounded-lg flex items-center justify-center text-2xl mb-4">
                                 <i class="fa-solid fa-handshake-angle"></i>
                             </div>
-                            <h4 class="text-xl font-bold text-corporate-900 mb-3">體貼的客製化服務<br><span class="text-sm text-gray-500 font-normal">Empathetic Customization</span></h4>
-                            <p class="text-body-sm text-gray-600">我們拒絕套用死板的標準圖。從初步諮詢開始,我們的工程顧問與業務團隊便會深入了解您的地形、氣候、動線與美學需求,為您量身打造最合適的空間方案。</p>
+                            <h4 class="text-xl font-bold text-corporate-900 mb-3" data-i18n="value3-title">體貼的客製化服務<br><span class="text-sm text-gray-500 font-normal">Empathetic Customization</span></h4>
+                            <p class="text-body-sm text-gray-600" data-i18n="value3-body">我們拒絕套用死板的標準圖。從初步諮詢開始,我們的工程顧問與業務團隊便會深入了解您的地形、氣候、動線與美學需求,為您量身打造最合適的空間方案。</p>
                         </div>
                         <!-- Value 4 -->
                         <div class="gsap-fade-up bg-white border border-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" style="transition-delay: 0.3s;">
                             <div class="w-12 h-12 bg-blue-100 text-corporate-600 rounded-lg flex items-center justify-center text-2xl mb-4">
                                 <i class="fa-solid fa-leaf"></i>
                             </div>
-                            <h4 class="text-xl font-bold text-corporate-900 mb-3">綠色永續<br><span class="text-sm text-gray-500 font-normal">ESG & Sustainability</span></h4>
-                            <p class="text-body-sm text-gray-600">全乾式施工法大幅降低現場粉塵與噪音;鋼材高度可回收的特性,讓每一次建案都符合全球減碳與綠色環保趨勢。</p>
+                            <h4 class="text-xl font-bold text-corporate-900 mb-3" data-i18n="value4-title">綠色永續<br><span class="text-sm text-gray-500 font-normal">ESG &amp; Sustainability</span></h4>
+                            <p class="text-body-sm text-gray-600" data-i18n="value4-body">全乾式施工法大幅降低現場粉塵與噪音;鋼材高度可回收的特性,讓每一次建案都符合全球減碳與綠色環保趨勢。</p>
                         </div>
                     </div>
                 </div>
@@ -199,35 +206,34 @@
     <section id="services" class="py-24 bg-corporate-50 border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4">產品與服務</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4" data-i18n="services-title">產品與服務</h2>
                 <div class="w-20 h-1 bg-corporate-500 mx-auto"></div>
-                <p class="mt-6 text-body text-gray-600 max-w-2xl mx-auto">核心解決方案，提供兼具機能與美學的智慧選擇</p>
+                <p class="mt-6 text-body text-gray-600 max-w-2xl mx-auto" data-i18n="services-sub">核心解決方案，提供兼具機能與美學的智慧選擇</p>
             </div>
 
             <!-- Service 1 -->
             <div class="mb-24 gsap-fade-up">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="order-2 lg:order-1 relative rounded-xl overflow-hidden shadow-xl h-[400px]">
-                        <!-- Updated Image for Premium Modular Housing -->
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPkCS-IgJHd4Tx0z1l1oXWmAXZIG6fxit5uGdiotBLRdTz54LpgzFj_kzqAMftHKHepospVX06RB8CxpIhSuGwF3oWZKvLYZMBQmjULn5IQ5T4CJsQ8=w480" alt="[高階模組化組合屋實景]" class="w-full h-full object-cover"/>
                         <div class="absolute inset-0 bg-corporate-900/10 mix-blend-multiply"></div>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <div class="inline-block px-3 py-1 bg-blue-100 text-corporate-600 rounded-full text-sm font-bold mb-4">核心產品 01</div>
-                        <h3 class="text-3xl font-bold text-corporate-900 mb-6">1. 高階模組化組合屋<br><span class="text-xl text-gray-500 font-normal">Premium Modular Housing</span></h3>
-                        <p class="text-body text-gray-700 mb-6">現代化的組合屋不再是臨時妥協,而是兼具機能與美學的智慧選擇。我們提供可靈活拆裝、擴充的箱體與斷熱防潮系統:</p>
+                        <div class="inline-block px-3 py-1 bg-blue-100 text-corporate-600 rounded-full text-sm font-bold mb-4" data-i18n="service1-tag">核心產品 01</div>
+                        <h3 class="text-3xl font-bold text-corporate-900 mb-6" data-i18n="service1-title">1. 高階模組化組合屋<br><span class="text-xl text-gray-500 font-normal">Premium Modular Housing</span></h3>
+                        <p class="text-body text-gray-700 mb-6" data-i18n="service1-desc">現代化的組合屋不再是臨時妥協,而是兼具機能與美學的智慧選擇。我們提供可靈活拆裝、擴充的箱體與斷熱防潮系統:</p>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fa-solid fa-circle-check text-corporate-500 mt-1.5 mr-3"></i>
-                                <p class="text-body-sm text-gray-700"><strong class="text-corporate-800 font-bold">外籍移工宿舍/企業營區:</strong> 提供高規隔熱、通風良好且符合人權標準的安全居住空間,讓員工安心,企業放心。</p>
+                                <p class="text-body-sm text-gray-700" data-i18n="service1-li1"><strong class="text-corporate-800 font-bold">外籍移工宿舍/企業營區:</strong> 提供高規隔熱、通風良好且符合人權標準的安全居住空間,讓員工安心,企業放心。</p>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-circle-check text-corporate-500 mt-1.5 mr-3"></i>
-                                <p class="text-body-sm text-gray-700"><strong class="text-corporate-800 font-bold">機動辦公室/商業展示間:</strong> 具備現代感外觀,隨時可配合企業擴張腳步進行異地拆遷與重組。</p>
+                                <p class="text-body-sm text-gray-700" data-i18n="service1-li2"><strong class="text-corporate-800 font-bold">機動辦公室/商業展示間:</strong> 具備現代感外觀,隨時可配合企業擴張腳步進行異地拆遷與重組。</p>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-circle-check text-corporate-500 mt-1.5 mr-3"></i>
-                                <p class="text-body-sm text-gray-700"><strong class="text-corporate-800 font-bold">緊急醫療與救災空間:</strong> 支援極速部署,內部管線預先整合,落地即可啟用。</p>
+                                <p class="text-body-sm text-gray-700" data-i18n="service1-li3"><strong class="text-corporate-800 font-bold">緊急醫療與救災空間:</strong> 支援極速部署,內部管線預先整合,落地即可啟用。</p>
                             </li>
                         </ul>
                     </div>
@@ -238,25 +244,25 @@
             <div class="gsap-fade-up">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="order-1 lg:order-1">
-                        <div class="inline-block px-3 py-1 bg-blue-100 text-corporate-600 rounded-full text-sm font-bold mb-4">核心產品 02</div>
-                        <h3 class="text-3xl font-bold text-corporate-900 mb-6">2. 輕鋼構建築工程<br><span class="text-xl text-gray-500 font-normal">Light Gauge Steel Framing</span></h3>
+                        <div class="inline-block px-3 py-1 bg-blue-100 text-corporate-600 rounded-full text-sm font-bold mb-4" data-i18n="service2-tag">核心產品 02</div>
+                        <h3 class="text-3xl font-bold text-corporate-900 mb-6" data-i18n="service2-title">2. 輕鋼構建築工程<br><span class="text-xl text-gray-500 font-normal">Light Gauge Steel Framing</span></h3>
                         <div class="prose prose-lg text-gray-700 max-w-none text-body-sm">
-                            <p class="mb-4">取代傳統沉重的鋼筋水泥,提供更靈活的建築骨架,輕型鋼構建築是以冷軋型鋼構造所建構的輕鋼構建築。</p>
+                            <p class="mb-4" data-i18n="service2-p1">取代傳統沉重的鋼筋水泥,提供更靈活的建築骨架,輕型鋼構建築是以冷軋型鋼構造所建構的輕鋼構建築。</p>
                             <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm mb-6">
-                                <h4 class="font-bold text-corporate-800 mb-2 border-b pb-2">主要凸顯優點:</h4>
-                                <p class="text-corporate-700 font-medium">抗震7級、抗颱17級(安全系度高)、施工周期短、自重輕(運輸成本低)、結構韌性強(可滿足各種風格的建築建造要求)、可移動、環保性(異地再建時60%建築材料可重複利用)、裝配式施工方式(人工成本低,更大效益化)</p>
+                                <h4 class="font-bold text-corporate-800 mb-2 border-b pb-2" data-i18n="service2-box-title">主要凸顯優點:</h4>
+                                <p class="text-corporate-700 font-medium" data-i18n="service2-box-body">抗震7級、抗颱17級(安全系度高)、施工周期短、自重輕(運輸成本低)、結構韌性強(可滿足各種風格的建築建造要求)、可移動、環保性(異地再建時60%建築材料可重複利用)、裝配式施工方式(人工成本低,更大效益化)</p>
                             </div>
-                            <p class="mb-4">它有別於一般的鋼筋混凝土 and 鋼骨建築所採用樑、柱支撐系統的構架,在設計上主要為框架牆板式結構系統。</p>
-                            <p class="mb-6">在以框架牆板式結構系統的冷軋型鋼構造中,結構牆體即是主要之受力單元。除了可以支撐垂直載重外,亦可達到抵抗橫向地震力及風力荷重的要求。牆體及樓層板框架內部則可按照使用者設計上的需求,填入相關建築材料,以達到耐火、隔熱、隔音與強度等要求:</p>
+                            <p class="mb-4" data-i18n="service2-p2">它有別於一般的鋼筋混凝土與鋼骨建築所採用樑、柱支撐系統的構架,在設計上主要為框架牆板式結構系統。</p>
+                            <p class="mb-6" data-i18n="service2-p3">在以框架牆板式結構系統的冷軋型鋼構造中,結構牆體即是主要之受力單元。除了可以支撐垂直載重外,亦可達到抵抗橫向地震力及風力荷重的要求。牆體及樓層板框架內部則可按照使用者設計上的需求,填入相關建築材料,以達到耐火、隔熱、隔音與強度等要求:</p>
                         </div>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <div class="bg-corporate-100 p-2 rounded mr-4 mt-1"><i class="fa-solid fa-house-chimney text-corporate-600"></i></div>
-                                <p class="text-body-sm text-gray-700 pt-1"><strong class="text-corporate-800 font-bold">精緻農舍與休閒民宿:</strong> 免除重型地基破壞水土,快速打造與自然共存的質感度假空間。</p>
+                                <p class="text-body-sm text-gray-700 pt-1" data-i18n="service2-li1"><strong class="text-corporate-800 font-bold">精緻農舍與休閒民宿:</strong> 免除重型地基破壞水土,快速打造與自然共存的質感度假空間。</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="bg-corporate-100 p-2 rounded mr-4 mt-1"><i class="fa-solid fa-industry text-corporate-600"></i></div>
-                                <p class="text-body-sm text-gray-700 pt-1"><strong class="text-corporate-800 font-bold">大型透天厝與廠房:</strong> 具備優異的韌性,抗震表現卓越,且室內格局無需受限於粗大樑柱,空間利用率更高。</p>
+                                <p class="text-body-sm text-gray-700 pt-1" data-i18n="service2-li2"><strong class="text-corporate-800 font-bold">大型透天厝與廠房:</strong> 具備優異的韌性,抗震表現卓越,且室內格局無需受限於粗大樑柱,空間利用率更高。</p>
                             </li>
                         </ul>
                     </div>
@@ -273,9 +279,9 @@
     <section id="cases" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4">實績案例</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4" data-i18n="cases-title">實績案例</h2>
                 <div class="w-20 h-1 bg-corporate-500 mx-auto"></div>
-                <p class="mt-6 text-body text-gray-600 max-w-2xl mx-auto">展示公司的硬實力與解決問題的能力</p>
+                <p class="mt-6 text-body text-gray-600 max-w-2xl mx-auto" data-i18n="cases-sub">展示公司的硬實力與解決問題的能力</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -283,23 +289,23 @@
                 <div class="gsap-fade-up flex flex-col bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                     <div class="h-56 overflow-hidden relative">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNByZmq-3lmQGTRmd0IbBAHRWLDwMK4mIQdWoqnG4heia8GwmxH2qWOxYbNJopkeiRd5hV7oMgmb3LwibnF3PeiPTsDHv7JgxixOjEcWFaMHXqQj3FE=w800" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md">極限環境的完美部署</div>
+                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md" data-i18n="case1-badge">極限環境的完美部署</div>
                     </div>
                     <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3">案例一: 遠端/離島醫療生活區專案 (如東沙島專案)</h3>
+                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3" data-i18n="case1-title">案例一: 遠端/離島醫療生活區專案 (如東沙島專案)</h3>
                         <div class="space-y-4 flex-grow text-body-sm text-gray-700">
                             <div>
-                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i>面臨挑戰:</span>
-                                <p>離島物資運補困難、氣候極端、施工腹地狹小,且對建築抗風防腐要求極高。</p>
+                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i><span data-i18n="label-challenge">面臨挑戰:</span></span>
+                                <p data-i18n="case1-challenge">離島物資運補困難、氣候極端、施工腹地狹小,且對建築抗風防腐要求極高。</p>
                             </div>
                             <div>
-                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-lightbulb text-corporate-500 mr-2"></i>貼邦解決方案:</span>
-                                <p>透過高度模組化設計,將所有零組件在台灣本島完成預製與防鏽處理,精準計算船運材積。現場採用快速拼裝工法,大幅縮短施工人員在惡劣環境下的作業時間。</p>
+                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-lightbulb text-corporate-500 mr-2"></i><span data-i18n="label-solution">貼邦解決方案:</span></span>
+                                <p data-i18n="case1-solution">透過高度模組化設計,將所有零組件在台灣本島完成預製與防鏽處理,精準計算船運材積。現場採用快速拼裝工法,大幅縮短施工人員在惡劣環境下的作業時間。</p>
                             </div>
                         </div>
                         <div class="mt-6 bg-corporate-50 p-4 rounded-lg border-l-4 border-corporate-500">
-                            <span class="font-bold text-corporate-900 block mb-1"><i class="fa-solid fa-trophy text-yellow-500 mr-2"></i>成果:</span>
-                            <p class="text-body-sm text-gray-700">如期交付具備頂級抗風、斷熱功能的生活與醫療空間,完美展現貼邦在「極端物流與複雜工程」上的統包管理能力。</p>
+                            <span class="font-bold text-corporate-900 block mb-1"><i class="fa-solid fa-trophy text-yellow-500 mr-2"></i><span data-i18n="label-outcome">成果:</span></span>
+                            <p class="text-body-sm text-gray-700" data-i18n="case1-result">如期交付具備頂級抗風、斷熱功能的生活與醫療空間,完美展現貼邦在「極端物流與複雜工程」上的統包管理能力。</p>
                         </div>
                     </div>
                 </div>
@@ -308,23 +314,23 @@
                 <div class="gsap-fade-up flex flex-col bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.1s;">
                     <div class="h-56 overflow-hidden relative">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczODsWKZeow5COGaXDnfQaZkISuVvLkjGIN3zOSLeFIsn-VximlCefAC0EUNakY-B3-S7aXBE28niIYuFTT5ls2QoP2klOJSOZVv4GVW72Ryz_LJcf7i=w800" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md">企業高效擴張</div>
+                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md" data-i18n="case2-badge">企業高效擴張</div>
                     </div>
                     <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3">案例二: 高機能外籍移工宿舍與辦公區</h3>
+                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3" data-i18n="case2-title">案例二: 高機能外籍移工宿舍與辦公區</h3>
                         <div class="space-y-4 flex-grow text-body-sm text-gray-700">
                             <div>
-                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i>面臨挑戰:</span>
-                                <p>業主需要短期內安置大量員工,並要求居住品質與防火安全合規。</p>
+                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i><span data-i18n="label-challenge">面臨挑戰:</span></span>
+                                <p data-i18n="case2-challenge">業主需要短期內安置大量員工,並要求居住品質與防火安全合規。</p>
                             </div>
                             <div>
-                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-lightbulb text-corporate-500 mr-2"></i>貼邦解決方案:</span>
-                                <p>採用高階斷熱夾心板材(PU/岩棉)打造模組化宿舍,解決傳統鐵皮屋悶熱、隔音差的痛點。</p>
+                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-lightbulb text-corporate-500 mr-2"></i><span data-i18n="label-solution">貼邦解決方案:</span></span>
+                                <p data-i18n="case2-solution">採用高階斷熱夾心板材(PU/岩棉)打造模組化宿舍,解決傳統鐵皮屋悶熱、隔音差的痛點。</p>
                             </div>
                         </div>
                         <div class="mt-6 bg-corporate-50 p-4 rounded-lg border-l-4 border-corporate-500">
-                            <span class="font-bold text-corporate-900 block mb-1"><i class="fa-solid fa-trophy text-yellow-500 mr-2"></i>成果:</span>
-                            <p class="text-body-sm text-gray-700">僅耗費傳統工期的一半時間即全數落成,為企業省下龐大的時間成本,同時提升員工滿意度。</p>
+                            <span class="font-bold text-corporate-900 block mb-1"><i class="fa-solid fa-trophy text-yellow-500 mr-2"></i><span data-i18n="label-outcome">成果:</span></span>
+                            <p class="text-body-sm text-gray-700" data-i18n="case2-result">僅耗費傳統工期的一半時間即全數落成,為企業省下龐大的時間成本,同時提升員工滿意度。</p>
                         </div>
                     </div>
                 </div>
@@ -333,14 +339,14 @@
                 <div class="gsap-fade-up flex flex-col bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.2s;">
                     <div class="h-56 overflow-hidden relative">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPRgZJGKTB_Hy7dVOtFNWsMeivG0Mn9_sGZokcXFPySukR9RUMZyYEU1DXxkm65R2ymGPM9Zzv7iq8nIvTrZignMZ_otKsx2ys9EQSLozvr7_2eEtzA=w800" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md">與自然共生的美學</div>
+                        <div class="absolute top-4 left-4 bg-corporate-600 text-white text-xs font-bold px-3 py-1 rounded shadow-md" data-i18n="case3-badge">與自然共生的美學</div>
                     </div>
                     <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3">案例三: 景觀農舍與渡假住宅</h3>
+                        <h3 class="text-xl font-bold text-corporate-900 mb-4 border-b border-gray-100 pb-3" data-i18n="case3-title">案例三: 景觀農舍與渡假住宅</h3>
                         <div class="space-y-4 flex-grow text-body-sm text-gray-700">
                             <div>
-                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-star text-corporate-500 mr-2"></i>特色:</span>
-                                <p>為嚮往大自然的業主量身訂製。採用輕鋼構系統,搭配木紋或其他質感外牆材,完美融入地景,實現業主對綠色生活的想像。</p>
+                                <span class="font-bold text-corporate-800 block mb-1"><i class="fa-solid fa-star text-corporate-500 mr-2"></i><span data-i18n="label-feature">特色:</span></span>
+                                <p data-i18n="case3-feature">為嚮往大自然的業主量身訂製。採用輕鋼構系統,搭配木紋或其他質感外牆材,完美融入地景,實現業主對綠色生活的想像。</p>
                             </div>
                         </div>
                         <div class="mt-6 flex-grow"></div>
@@ -355,44 +361,44 @@
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
+
                 <!-- Contact Info -->
                 <div class="gsap-fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">聯絡我們</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="contact-title">聯絡我們</h2>
                     <div class="w-20 h-1 bg-corporate-500 mb-8"></div>
-                    
-                    <p class="text-body text-gray-300 mb-10 leading-relaxed font-light">
+
+                    <p class="text-body text-gray-300 mb-10 leading-relaxed font-light" data-i18n="contact-desc">
                         準備好啟動您的下一個建築專案了嗎?<br>
                         無論您身在台灣還是海外,無論是企業廠辦、員工宿舍,還是特殊地形開發,貼邦的專業團隊隨時準備為您提供體貼、精準的顧問服務。
                     </p>
-                    
+
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fa-solid fa-location-dot text-xl text-corporate-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-lg mb-1">總部地址</h4>
-                                <p class="text-gray-400 text-body-sm">高雄市三民區綏遠一街123號</p>
+                                <h4 class="font-bold text-white text-lg mb-1" data-i18n="contact-addr-label">總部地址</h4>
+                                <p class="text-gray-400 text-body-sm" data-i18n="contact-addr">高雄市三民區綏遠一街123號</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fa-solid fa-phone text-xl text-corporate-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-lg mb-1">聯絡電話</h4>
+                                <h4 class="font-bold text-white text-lg mb-1" data-i18n="contact-phone-label">聯絡電話</h4>
                                 <p class="text-gray-400 text-body-sm">+886 937626316</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fa-solid fa-envelope text-xl text-corporate-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-lg mb-1">電子郵件</h4>
+                                <h4 class="font-bold text-white text-lg mb-1" data-i18n="contact-email-label">電子郵件</h4>
                                 <p class="text-gray-400 text-body-sm">tibund0703@gmail.com</p>
                             </div>
                         </div>
@@ -402,8 +408,8 @@
                                 <i class="fa-solid fa-clock text-xl text-corporate-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-lg mb-1">營業時間</h4>
-                                <p class="text-gray-400 text-body-sm">週一至週五 09:00 - 18:00</p>
+                                <h4 class="font-bold text-white text-lg mb-1" data-i18n="contact-hours-label">營業時間</h4>
+                                <p class="text-gray-400 text-body-sm" data-i18n="contact-hours">週一至週五 09:00 - 18:00</p>
                             </div>
                         </div>
                     </div>
@@ -411,43 +417,43 @@
 
                 <!-- Inquiry Form -->
                 <div class="gsap-fade-up bg-white p-8 md:p-10 rounded-xl shadow-2xl text-corporate-900">
-                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-100 pb-4 text-corporate-800">【線上諮詢表單 (Inquiry Form)】</h3>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-100 pb-4 text-corporate-800" data-i18n="form-title">【線上諮詢表單 (Inquiry Form)】</h3>
                     <form action="#" method="POST" class="space-y-5">
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label for="name" class="block text-sm font-bold text-gray-700 mb-1">姓名/公司名稱 <span class="text-red-500">*</span></label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" placeholder="請輸入姓名或公司名稱">
+                                <label for="name" class="block text-sm font-bold text-gray-700 mb-1" data-i18n="form-name-label">姓名/公司名稱 <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" data-i18n-ph="form-name-ph" placeholder="請輸入姓名或公司名稱">
                             </div>
                             <div>
-                                <label for="contact_info" class="block text-sm font-bold text-gray-700 mb-1">聯絡信箱/電話 <span class="text-red-500">*</span></label>
-                                <input type="text" id="contact_info" name="contact_info" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" placeholder="請輸入信箱或電話">
+                                <label for="contact_info" class="block text-sm font-bold text-gray-700 mb-1" data-i18n="form-contact-label">聯絡信箱/電話 <span class="text-red-500">*</span></label>
+                                <input type="text" id="contact_info" name="contact_info" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" data-i18n-ph="form-contact-ph" placeholder="請輸入信箱或電話">
                             </div>
                         </div>
 
                         <div>
-                            <label for="project_type" class="block text-sm font-bold text-gray-700 mb-1">專案類型 <span class="text-red-500">*</span></label>
+                            <label for="project_type" class="block text-sm font-bold text-gray-700 mb-1" data-i18n="form-type-label">專案類型 <span class="text-red-500">*</span></label>
                             <select id="project_type" name="project_type" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow bg-white text-body-sm">
-                                <option value="" disabled selected>請選擇專案類型</option>
-                                <option value="模組化組合屋">模組化組合屋</option>
-                                <option value="輕鋼構工程">輕鋼構工程</option>
-                                <option value="海外專案">海外專案</option>
-                                <option value="其他">其他</option>
+                                <option value="" disabled selected data-i18n="form-type-opt0">請選擇專案類型</option>
+                                <option value="模組化組合屋" data-i18n="form-type-opt1">模組化組合屋</option>
+                                <option value="輕鋼構工程" data-i18n="form-type-opt2">輕鋼構工程</option>
+                                <option value="海外專案" data-i18n="form-type-opt3">海外專案</option>
+                                <option value="其他" data-i18n="form-type-opt4">其他</option>
                             </select>
                         </div>
 
                         <div>
-                            <label for="location" class="block text-sm font-bold text-gray-700 mb-1">預計施工地點</label>
-                            <input type="text" id="location" name="location" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" placeholder="例如：高雄市、東沙島等">
+                            <label for="location" class="block text-sm font-bold text-gray-700 mb-1" data-i18n="form-location-label">預計施工地點</label>
+                            <input type="text" id="location" name="location" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm" data-i18n-ph="form-location-ph" placeholder="例如：高雄市、東沙島等">
                         </div>
 
                         <div>
-                            <label for="requirements" class="block text-sm font-bold text-gray-700 mb-1">您的需求描述 <span class="text-red-500">*</span></label>
-                            <textarea id="requirements" name="requirements" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm resize-none" placeholder="請告訴我們您的挑戰與期望..."></textarea>
+                            <label for="requirements" class="block text-sm font-bold text-gray-700 mb-1" data-i18n="form-req-label">您的需求描述 <span class="text-red-500">*</span></label>
+                            <textarea id="requirements" name="requirements" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-corporate-500 focus:border-corporate-500 outline-none transition-shadow text-body-sm resize-none" data-i18n-ph="form-req-ph" placeholder="請告訴我們您的挑戰與期望..."></textarea>
                         </div>
 
                         <button type="submit" class="w-full bg-corporate-600 text-white font-bold py-4 px-4 rounded-md hover:bg-corporate-500 transition-colors shadow-lg hover:shadow-xl text-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
-                            <i class="fa-solid fa-paper-plane"></i> 送出表單
+                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form-submit">送出表單</span>
                         </button>
                     </form>
                 </div>
@@ -462,7 +468,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2 text-white">
                     <i class="fa-solid fa-building-shield text-corporate-500"></i>
-                    <span class="font-bold tracking-wider">貼邦輕鋼構股份有限公司</span>
+                    <span class="font-bold tracking-wider" data-i18n="footer-brand">貼邦輕鋼構股份有限公司</span>
                 </div>
                 <p class="text-gray-400 text-sm">
                     &copy; <span id="current-year"></span> Tibund Light Steel Structure. All rights reserved.
@@ -474,13 +480,249 @@
     <!-- GSAP & ScrollTrigger Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
+    <!-- i18n Translation Dictionary -->
+    <script>
+        const I18N = {
+            zh: {
+                "page-title": "貼邦輕鋼構股份有限公司 (Tibund Light Steel Structure)",
+                "meta-desc": "貼邦輕鋼構專注於高階模組化組合屋與輕鋼構工程，提供兼具結構強度與環境永續的一站式空間解決方案。",
+                "brand": "貼邦輕鋼構",
+                "nav-home": "首頁",
+                "nav-about": "關於我們",
+                "nav-services": "產品與服務",
+                "nav-cases": "實績案例",
+                "nav-contact": "聯絡我們",
+                "hero-title": "為您打造安全、極速、客製化的<br class=\"hidden md:block\"/>現代化建築空間。",
+                "hero-desc": "貼邦輕鋼構專注於高階模組化組合屋與輕鋼構工程。從精緻農舍、企業廠辦到遠端高難度專案，我們提供兼具結構強度與環境永續的一站式空間解決方案。",
+                "hero-btn1": "探索模組化解決方案",
+                "hero-btn2": "聯絡工程顧問",
+                "about-title": "關於我們",
+                "about-intro-title": "【公司簡介】",
+                "about-intro-body": "建築的未來，在於精準與效率。貼邦輕鋼構股份有限公司總部位於台灣高雄市三民區，我們是一群致力於翻轉傳統營造模式的建築工程專家。我們深知，無論是企業擴張還是特殊環境開發，時間與安全性都是最大的成本。因此，我們將建築「工業化、模組化」，透過精密的結構計算與工廠預製，讓蓋房子變得如同組裝精密零件般迅速且可靠。",
+                "corevalues-title": "【我們的核心價值 (Core Values)】",
+                "value1-title": "專業與絕對安全<br><span class=\"text-sm text-gray-500 font-normal\">Professionalism &amp; Safety</span>",
+                "value1-body": "我們採用高張力鍍鋅鋼材，具備極佳的抗震與耐風能力。結構設計皆經過嚴格計算，打破傳統對組合屋的刻板印象，提供真正能抵禦惡劣氣候的堅固堡壘。",
+                "value2-title": "極速完工<br><span class=\"text-sm text-gray-500 font-normal\">Rapid Deployment</span>",
+                "value2-body": "時間就是金錢。我們的「廠內預製、現場組裝」系統，能將傳統混凝土(RC)建築的工期大幅縮短50%以上，幫助客戶最快投入營運。",
+                "value3-title": "體貼的客製化服務<br><span class=\"text-sm text-gray-500 font-normal\">Empathetic Customization</span>",
+                "value3-body": "我們拒絕套用死板的標準圖。從初步諮詢開始，我們的工程顧問與業務團隊便會深入了解您的地形、氣候、動線與美學需求，為您量身打造最合適的空間方案。",
+                "value4-title": "綠色永續<br><span class=\"text-sm text-gray-500 font-normal\">ESG &amp; Sustainability</span>",
+                "value4-body": "全乾式施工法大幅降低現場粉塵與噪音；鋼材高度可回收的特性，讓每一次建案都符合全球減碳與綠色環保趨勢。",
+                "services-title": "產品與服務",
+                "services-sub": "核心解決方案，提供兼具機能與美學的智慧選擇",
+                "service1-tag": "核心產品 01",
+                "service1-title": "1. 高階模組化組合屋<br><span class=\"text-xl text-gray-500 font-normal\">Premium Modular Housing</span>",
+                "service1-desc": "現代化的組合屋不再是臨時妥協，而是兼具機能與美學的智慧選擇。我們提供可靈活拆裝、擴充的箱體與斷熱防潮系統：",
+                "service1-li1": "<strong class=\"text-corporate-800 font-bold\">外籍移工宿舍／企業營區：</strong> 提供高規隔熱、通風良好且符合人權標準的安全居住空間，讓員工安心，企業放心。",
+                "service1-li2": "<strong class=\"text-corporate-800 font-bold\">機動辦公室／商業展示間：</strong> 具備現代感外觀，隨時可配合企業擴張腳步進行異地拆遷與重組。",
+                "service1-li3": "<strong class=\"text-corporate-800 font-bold\">緊急醫療與救災空間：</strong> 支援極速部署，內部管線預先整合，落地即可啟用。",
+                "service2-tag": "核心產品 02",
+                "service2-title": "2. 輕鋼構建築工程<br><span class=\"text-xl text-gray-500 font-normal\">Light Gauge Steel Framing</span>",
+                "service2-p1": "取代傳統沉重的鋼筋水泥，提供更靈活的建築骨架，輕型鋼構建築是以冷軋型鋼構造所建構的輕鋼構建築。",
+                "service2-box-title": "主要凸顯優點：",
+                "service2-box-body": "抗震 0.4g（峰值地表加速度）、抗風達 61 m/s（時速約 220 公里，相當於四級強颱）—安全係數高、施工周期短、自重輕（運輸成本低）、結構韌性強（可滿足各種風格的建築建造要求）、可移動、環保性（異地再建時 60% 建築材料可重複利用）、裝配式施工方式（人工成本低，更大效益化）",
+                "service2-p2": "它有別於一般的鋼筋混凝土與鋼骨建築所採用樑、柱支撐系統的構架，在設計上主要為框架牆板式結構系統。",
+                "service2-p3": "在以框架牆板式結構系統的冷軋型鋼構造中，結構牆體即是主要之受力單元。除了可以支撐垂直載重外，亦可達到抵抗橫向地震力及風力荷重的要求。牆體及樓層板框架內部則可按照使用者設計上的需求，填入相關建築材料，以達到耐火、隔熱、隔音與強度等要求：",
+                "service2-li1": "<strong class=\"text-corporate-800 font-bold\">精緻農舍與休閒民宿：</strong> 免除重型地基破壞水土，快速打造與自然共存的質感度假空間。",
+                "service2-li2": "<strong class=\"text-corporate-800 font-bold\">大型透天厝與廠房：</strong> 具備優異的韌性，抗震表現卓越，且室內格局無需受限於粗大樑柱，空間利用率更高。",
+                "cases-title": "實績案例",
+                "cases-sub": "展示公司的硬實力與解決問題的能力",
+                "label-challenge": "面臨挑戰：",
+                "label-solution": "貼邦解決方案：",
+                "label-outcome": "成果：",
+                "label-feature": "特色：",
+                "case1-badge": "極限環境的完美部署",
+                "case1-title": "案例一：遠端／離島醫療生活區專案（如東沙島專案）",
+                "case1-challenge": "離島物資運補困難、氣候極端、施工腹地狹小，且對建築抗風防腐要求極高。",
+                "case1-solution": "透過高度模組化設計，將所有零組件在台灣本島完成預製與防鏽處理，精準計算船運材積。現場採用快速拼裝工法，大幅縮短施工人員在惡劣環境下的作業時間。",
+                "case1-result": "如期交付具備頂級抗風、斷熱功能的生活與醫療空間，完美展現貼邦在「極端物流與複雜工程」上的統包管理能力。",
+                "case2-badge": "企業高效擴張",
+                "case2-title": "案例二：高機能外籍移工宿舍與辦公區",
+                "case2-challenge": "業主需要短期內安置大量員工，並要求居住品質與防火安全合規。",
+                "case2-solution": "採用高階斷熱夾心板材（PU／岩棉）打造模組化宿舍，解決傳統鐵皮屋悶熱、隔音差的痛點。",
+                "case2-result": "僅耗費傳統工期的一半時間即全數落成，為企業省下龐大的時間成本，同時提升員工滿意度。",
+                "case3-badge": "與自然共生的美學",
+                "case3-title": "案例三：景觀農舍與渡假住宅",
+                "case3-feature": "為嚮往大自然的業主量身訂製。採用輕鋼構系統，搭配木紋或其他質感外牆材，完美融入地景，實現業主對綠色生活的想像。",
+                "contact-title": "聯絡我們",
+                "contact-desc": "準備好啟動您的下一個建築專案了嗎？<br>無論您身在台灣還是海外，無論是企業廠辦、員工宿舍，還是特殊地形開發，貼邦的專業團隊隨時準備為您提供體貼、精準的顧問服務。",
+                "contact-addr-label": "總部地址",
+                "contact-addr": "高雄市三民區綏遠一街123號",
+                "contact-phone-label": "聯絡電話",
+                "contact-email-label": "電子郵件",
+                "contact-hours-label": "營業時間",
+                "contact-hours": "週一至週五 09:00 - 18:00",
+                "form-title": "【線上諮詢表單 (Inquiry Form)】",
+                "form-name-label": "姓名／公司名稱 <span class=\"text-red-500\">*</span>",
+                "form-name-ph": "請輸入姓名或公司名稱",
+                "form-contact-label": "聯絡信箱／電話 <span class=\"text-red-500\">*</span>",
+                "form-contact-ph": "請輸入信箱或電話",
+                "form-type-label": "專案類型 <span class=\"text-red-500\">*</span>",
+                "form-type-opt0": "請選擇專案類型",
+                "form-type-opt1": "模組化組合屋",
+                "form-type-opt2": "輕鋼構工程",
+                "form-type-opt3": "海外專案",
+                "form-type-opt4": "其他",
+                "form-location-label": "預計施工地點",
+                "form-location-ph": "例如：高雄市、東沙島等",
+                "form-req-label": "您的需求描述 <span class=\"text-red-500\">*</span>",
+                "form-req-ph": "請告訴我們您的挑戰與期望…",
+                "form-submit": "送出表單",
+                "footer-brand": "貼邦輕鋼構股份有限公司"
+            },
+            en: {
+                "page-title": "Tibund Light Steel Structure Co., Ltd.",
+                "meta-desc": "Tibund specializes in premium modular buildings and light gauge steel engineering, delivering one-stop spatial solutions that combine structural strength with environmental sustainability.",
+                "brand": "Tibund",
+                "nav-home": "Home",
+                "nav-about": "About",
+                "nav-services": "Products & Services",
+                "nav-cases": "Projects",
+                "nav-contact": "Contact",
+                "hero-title": "Safe, Fast, and Custom-Made<br class=\"hidden md:block\"/>Modern Spaces, Built for You.",
+                "hero-desc": "Tibund specializes in premium modular buildings and light gauge steel engineering. From refined country homes and corporate facilities to remote, high-difficulty projects, we deliver one-stop spatial solutions that combine structural strength with environmental sustainability.",
+                "hero-btn1": "Explore Modular Solutions",
+                "hero-btn2": "Talk to an Engineer",
+                "about-title": "About Us",
+                "about-intro-title": "Company Overview",
+                "about-intro-body": "The future of construction lies in precision and efficiency. Headquartered in Sanmin District, Kaohsiung, Taiwan, Tibund Light Steel Structure Co., Ltd. is a team of building engineering experts dedicated to transforming the traditional construction model. We understand that whether you are expanding your business or developing a challenging site, time and safety are the greatest costs. That is why we industrialize and modularize construction—through precise structural engineering and factory prefabrication, we make building as fast and reliable as assembling precision components.",
+                "corevalues-title": "Our Core Values",
+                "value1-title": "Professionalism & Absolute Safety<br><span class=\"text-sm text-gray-500 font-normal\">Professionalism &amp; Safety</span>",
+                "value1-body": "We use high-tensile galvanized steel with outstanding seismic and wind resistance. Every structure is rigorously engineered, breaking the stereotype of modular buildings to deliver a solid stronghold that truly withstands extreme weather.",
+                "value2-title": "Rapid Deployment<br><span class=\"text-sm text-gray-500 font-normal\">Rapid Deployment</span>",
+                "value2-body": "Time is money. Our \"factory-prefabricated, on-site assembled\" system shortens construction time by more than 50% compared with traditional reinforced concrete (RC), helping clients begin operations sooner.",
+                "value3-title": "Empathetic Customization<br><span class=\"text-sm text-gray-500 font-normal\">Empathetic Customization</span>",
+                "value3-body": "We refuse one-size-fits-all blueprints. From the first consultation, our engineering consultants and sales team study your terrain, climate, circulation, and aesthetic needs to tailor the ideal solution for you.",
+                "value4-title": "ESG & Sustainability<br><span class=\"text-sm text-gray-500 font-normal\">ESG &amp; Sustainability</span>",
+                "value4-body": "Our fully dry construction method dramatically reduces on-site dust and noise, while highly recyclable steel ensures every project aligns with global carbon-reduction and green-building trends.",
+                "services-title": "Products & Services",
+                "services-sub": "Core solutions that combine functionality and aesthetics for a smarter choice.",
+                "service1-tag": "Core Product 01",
+                "service1-title": "1. Premium Modular Housing<br><span class=\"text-xl text-gray-500 font-normal\">Premium Modular Housing</span>",
+                "service1-desc": "Modern modular buildings are no longer a temporary compromise—they are a smart choice combining function and aesthetics. We provide flexible, demountable and expandable units with thermal-insulation and moisture-proofing systems:",
+                "service1-li1": "<strong class=\"text-corporate-800 font-bold\">Migrant Worker Dormitories / Corporate Camps:</strong> High-spec insulation, excellent ventilation, and safe living spaces that meet human-rights standards—reassuring for both employees and employers.",
+                "service1-li2": "<strong class=\"text-corporate-800 font-bold\">Mobile Offices / Commercial Showrooms:</strong> A modern appearance, ready to be relocated and reassembled in step with your company's expansion.",
+                "service1-li3": "<strong class=\"text-corporate-800 font-bold\">Emergency Medical & Disaster-Relief Spaces:</strong> Rapid deployment with pre-integrated utilities—ready to use the moment they are in place.",
+                "service2-tag": "Core Product 02",
+                "service2-title": "2. Light Gauge Steel Framing<br><span class=\"text-xl text-gray-500 font-normal\">Light Gauge Steel Framing</span>",
+                "service2-p1": "Replacing heavy reinforced concrete with a more flexible building frame, light gauge steel buildings are constructed from cold-formed steel sections.",
+                "service2-box-title": "Key Advantages:",
+                "service2-box-body": "Seismic resistance up to 0.4 g peak ground acceleration; wind resistance rated for speeds up to 61 m/s (about 220 km/h, equivalent to a Category 4 typhoon)—a high safety margin; short construction cycle; low self-weight (lower transport cost); strong structural ductility (meets the demands of virtually any architectural style); relocatable; environmentally friendly (up to 60% of materials reusable when rebuilt at a new site); prefabricated assembly (lower labor cost and greater efficiency).",
+                "service2-p2": "Unlike the beam-and-column support systems used in ordinary reinforced-concrete and structural-steel buildings, its design is primarily a frame-and-panel structural system.",
+                "service2-p3": "In this cold-formed steel frame-and-panel system, the structural walls are the primary load-bearing elements. In addition to supporting vertical loads, they meet the requirements for resisting lateral seismic and wind loads. The wall and floor-slab frames can be filled with the appropriate building materials according to the user's design needs to achieve fire resistance, thermal insulation, sound insulation, and strength:",
+                "service2-li1": "<strong class=\"text-corporate-800 font-bold\">Refined Country Homes & Boutique Lodges:</strong> No heavy foundations to disturb the soil—quickly create refined retreats that live in harmony with nature.",
+                "service2-li2": "<strong class=\"text-corporate-800 font-bold\">Large Townhouses & Factory Buildings:</strong> Excellent ductility and outstanding seismic performance, with interiors free of bulky beams and columns for higher space efficiency.",
+                "cases-title": "Projects",
+                "cases-sub": "Demonstrating our hard capabilities and our power to solve problems.",
+                "label-challenge": "Challenge:",
+                "label-solution": "Our Solution:",
+                "label-outcome": "Outcome:",
+                "label-feature": "Highlights:",
+                "case1-badge": "Flawless Deployment in Extreme Environments",
+                "case1-title": "Case 1: Remote / Offshore Medical & Living Quarters (e.g., Pratas Island Project)",
+                "case1-challenge": "Difficult resupply to an offshore island, an extreme climate, a tight construction footprint, and very high demands for wind resistance and corrosion protection.",
+                "case1-solution": "Through highly modular design, all components were prefabricated and rust-proofed on Taiwan's main island, with shipping volume precisely calculated. On-site rapid-assembly methods greatly shortened crews' working time in harsh conditions.",
+                "case1-result": "Delivered on schedule with top-tier wind-resistant and thermally insulated living and medical spaces—showcasing Tibund's turnkey management capability for extreme logistics and complex engineering.",
+                "case2-badge": "Efficient Corporate Expansion",
+                "case2-title": "Case 2: High-Performance Migrant Worker Dormitories & Offices",
+                "case2-challenge": "The client needed to house a large workforce within a short time while meeting living-quality and fire-safety compliance.",
+                "case2-solution": "We built modular dormitories using high-grade insulated sandwich panels (PU / rock wool), solving the heat and poor sound insulation of traditional metal-sheet huts.",
+                "case2-result": "Fully completed in half the time of traditional construction, saving the company significant time costs while boosting employee satisfaction.",
+                "case3-badge": "Aesthetics in Harmony with Nature",
+                "case3-title": "Case 3: Scenic Country Homes & Vacation Residences",
+                "case3-feature": "Tailor-made for owners who long for nature. Using a light gauge steel system paired with wood-grain or other textured cladding, the building blends perfectly into the landscape, realizing the owner's vision of green living.",
+                "contact-title": "Contact Us",
+                "contact-desc": "Ready to start your next building project?<br>Whether you are in Taiwan or overseas—corporate facilities, staff dormitories, or special-terrain development—Tibund's professional team is ready to provide thoughtful, precise consulting at any time.",
+                "contact-addr-label": "Headquarters",
+                "contact-addr": "No. 123, Suiyuan 1st St., Sanmin Dist., Kaohsiung City, Taiwan",
+                "contact-phone-label": "Phone",
+                "contact-email-label": "Email",
+                "contact-hours-label": "Business Hours",
+                "contact-hours": "Mon–Fri 09:00–18:00",
+                "form-title": "Online Inquiry Form",
+                "form-name-label": "Name / Company Name <span class=\"text-red-500\">*</span>",
+                "form-name-ph": "Enter your name or company name",
+                "form-contact-label": "Email / Phone <span class=\"text-red-500\">*</span>",
+                "form-contact-ph": "Enter your email or phone number",
+                "form-type-label": "Project Type <span class=\"text-red-500\">*</span>",
+                "form-type-opt0": "Select a project type",
+                "form-type-opt1": "Modular Building",
+                "form-type-opt2": "Light Gauge Steel Project",
+                "form-type-opt3": "Overseas Project",
+                "form-type-opt4": "Other",
+                "form-location-label": "Planned Construction Site",
+                "form-location-ph": "e.g., Kaohsiung City, Pratas Island",
+                "form-req-label": "Describe Your Needs <span class=\"text-red-500\">*</span>",
+                "form-req-ph": "Tell us about your challenges and expectations…",
+                "form-submit": "Submit",
+                "footer-brand": "Tibund Light Steel Structure Co., Ltd."
+            }
+        };
+    </script>
+
     <!-- Main Application Script -->
     <script>
+        function applyLang(lang) {
+            if (lang !== 'en') lang = 'zh';
+            const dict = I18N[lang];
+            document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hant';
+
+            // Text / innerHTML
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    const attr = el.getAttribute('data-i18n-attr');
+                    if (attr) {
+                        el.setAttribute(attr, dict[key]);
+                    } else {
+                        el.innerHTML = dict[key];
+                    }
+                }
+            });
+            // Placeholders
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+            });
+
+            // Document title
+            if (dict['page-title']) document.title = dict['page-title'];
+
+            // Toggle button label shows the OTHER language
+            document.querySelectorAll('.lang-label').forEach(el => {
+                el.textContent = (lang === 'en') ? '中文' : 'EN';
+            });
+
+            try { localStorage.setItem('tibund-lang', lang); } catch (e) {}
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Initial language: saved preference > browser language > zh
+            let initLang = 'zh';
+            try {
+                const saved = localStorage.getItem('tibund-lang');
+                if (saved) {
+                    initLang = saved;
+                } else if (navigator.language && navigator.language.toLowerCase().indexOf('zh') === -1) {
+                    initLang = 'en';
+                }
+            } catch (e) {}
+            applyLang(initLang);
+
+            // Language toggle buttons (desktop + mobile)
+            const toggle = () => {
+                const current = (document.documentElement.lang === 'en') ? 'en' : 'zh';
+                applyLang(current === 'en' ? 'zh' : 'en');
+            };
+            const tBtn = document.getElementById('lang-toggle');
+            const tBtnM = document.getElementById('lang-toggle-mobile');
+            if (tBtn) tBtn.addEventListener('click', toggle);
+            if (tBtnM) tBtnM.addEventListener('click', toggle);
 
             // Mobile menu toggle
             const btn = document.getElementById('mobile-menu-btn');
@@ -497,25 +739,24 @@
 
             // GSAP Animations setup
             gsap.registerPlugin(ScrollTrigger);
-            
+
             // Fade up animations for designated elements
             const fadeUpElements = document.querySelectorAll('.gsap-fade-up');
             fadeUpElements.forEach((el) => {
                 gsap.to(el, {
                     scrollTrigger: {
                         trigger: el,
-                        start: "top 85%", // Trigger animation when element is 85% into viewport
+                        start: "top 85%",
                         toggleActions: "play none none reverse"
                     },
                     y: 0,
                     opacity: 1,
-                    autoAlpha: 1, // handles visibility
+                    autoAlpha: 1,
                     duration: 0.8,
                     ease: "power3.out",
-                    clearProps: "transform" // Clean up to avoid transform conflicts after animation
+                    clearProps: "transform"
                 });
-                
-                // Initial state setup for GSAP
+
                 gsap.set(el, { y: 40, opacity: 0, autoAlpha: 0 });
             });
 
@@ -532,7 +773,7 @@
             });
         });
 
-        // 絕對關鍵：Google Sites iframe 錨點攔截與平滑滾動腳本
+        // Smooth scroll with fixed-navbar offset (also handles Google Sites iframe anchors)
         document.addEventListener('click', function (e) {
             const anchor = e.target.closest('a[href^="#"]');
             if (!anchor) return;
@@ -542,10 +783,8 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    // Custom offset for fixed navbar (approx 80px)
                     const navbarHeight = document.getElementById('navbar').offsetHeight;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
